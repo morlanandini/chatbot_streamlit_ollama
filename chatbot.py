@@ -77,8 +77,7 @@ if prompt:
     with st.chat_message("assistant"):
         message_placeholder = st.empty()  # Placeholder for dynamic updates
         response_text = ""  # Store full response
-
-        for chunk in chat_with_model(user_id, prompt):  
+        for chunk in chat_with_model(user_id, prompt):
             text_chunk = "".join(chunk)  # Convert generator output to string
             response_text += text_chunk  # Append to full response
             message_placeholder.markdown(response_text)  # Update UI in real-time
