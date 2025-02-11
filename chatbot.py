@@ -74,11 +74,23 @@ if prompt:
     with st.chat_message("user"):
         st.markdown(prompt)
 
+    response_placeholder = st.empty()  # To handle dynamic updates
+
     response = chat_with_model(user_id, prompt)
 
-    with st.chat_message("assistant"):
-            response = st.write(chat_with_model(user_id, prompt))
+    for chunk in response:
+        response_placeholder.markdown(chunk)  # Update the response progressively
+
+    # Add the final response to chat history
+    st.session_state.chat_history.append({'role': 'assistant', 'content': chunk})
 
 
 
-    st.session_state.chat_history.append({'role' : 'assistant','content' : response})
+    # response = chat_with_model(user_id, prompt)
+
+    # with st.chat_message("assistant"):
+    #         response = st.write(chat_with_model(user_id, prompt))
+
+
+
+    # st.session_state.chat_history.append({'role' : 'assistant','content' : response})
