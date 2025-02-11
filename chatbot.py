@@ -21,7 +21,7 @@ st.write("Chat with me")
 
 
 
-base_url = "http://localhost:11434"
+base_url = "https://morlanandini-chatbot-streamlit-ollama-chatbot-k9z1ra.streamlit.app/"
 model = "llama3.2:latest"
 
 llm = ChatOllama(base_url=base_url, model=model)
