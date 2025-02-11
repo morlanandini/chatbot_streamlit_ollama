@@ -66,7 +66,7 @@ def chat_with_model(session_id, input) :
 
 
 prompt = st.chat_input("whats up?")
-st.write(prompt)
+# st.write(prompt)
 
 if prompt:
     st.session_state.chat_history.append({'role' : 'user','content' : prompt})
@@ -77,7 +77,7 @@ if prompt:
     response = chat_with_model(user_id, prompt)
 
     with st.chat_message("assistant"):
-            response = st.write_stream(chat_with_model(user_id, prompt))
+            response = st.write(chat_with_model(user_id, prompt))
 
 
 
